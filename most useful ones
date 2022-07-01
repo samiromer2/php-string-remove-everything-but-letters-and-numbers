@@ -1,0 +1,36 @@
+
+
+
+
+<?php
+
+//$res = preg_replace("/[^a-zA-Z0-9\s]/", "", $string);
+
+
+$number = '12345abcd!@#$%+1';
+$number = preg_replace("/[^0-9]/","",$number);
+echo $number;
+?>
+
+//Output
+
+//123451 will be the output. Everything is replaced except numbers.
+
+<?php
+$number = '12345abcd!@#$%+1';
+$number = preg_replace('/\D/', '', $number);
+echo $number;
+?>
+
+123451 will be the output.
+
+
+<?php
+$number = '12345abcd!@#$%+1';
+$number = filter_var($number, FILTER_SANITIZE_NUMBER_INT);
+echo $number;
+?>
+
+Output
+
+12345+1 will be the output. Due to FILTER_SANITIZE_NUMBER_INT, the + sign is not replaced.
